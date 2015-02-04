@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Express Socket PI</title>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/socket.io.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+
+
+<body lang="en">
+
+    <div class="container">
+        <div data-alert class="alert-box alert round text-lable">
+          Red
+        </div>
+        <div id='red' class="range-slider round" data-slider=0 data-options="start: 0; end: 100;">
+            <span class="range-slider-handle" role="slider" tabindex="0"></span>
+            <span class="range-slider-active-segment"></span>
+            <input type="hidden">
+        </div>
+
+        <div data-alert class="alert-box warning round text-lable">
+          Yellow
+        </div>
+        <div id='yellow' class="range-slider round" data-slider=0 data-options="start: 0; end: 100;">
+            <span class="range-slider-handle" role="slider" tabindex="0"></span>
+            <span class="range-slider-active-segment"></span>
+            <input type="hidden">
+        </div>
+
+        <div data-alert class="alert-box success round text-lable">
+          Green
+        </div>
+        <div id='green' class="range-slider round" data-slider=0 data-options="start: 0; end: 100;">
+            <span class="range-slider-handle" role="slider" tabindex="0"></span>
+            <span class="range-slider-active-segment"></span>
+            <input type="hidden">
+        </div>
+    </div>
+    
+
+    
+    <script src="js/script.js"></script>
+</body>
+
+</html>

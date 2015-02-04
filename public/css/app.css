@@ -1,0 +1,14 @@
+/* Application CSS */
+/* You can probably delete all this once you're ready to make changes. */
+body {
+    background: white;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+}
+
+.text-lable {
+    font-size: 14px;
+    text-align: center;
+}
