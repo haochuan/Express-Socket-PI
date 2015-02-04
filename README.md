@@ -31,6 +31,21 @@ node server.js
 
 - If you want to stop the server, press `ctrl + c`.
 
+### Some useful bash command:
+`ls `: list files and directories
+
+`cd`: change directory
+
+`mkdir`: create a new directory
+
+`cp`: copy files or directories
+
+`mv`: move (rename) files or directories
+
+`rm `: remove files or directories
+
+For more information, [google](https://www.google.com/search?client=safari&rls=en&q=basic+terminal+commands+os+x&ie=UTF-8&oe=UTF-8#rls=en&q=basic+terminal+commands+os+x) or see [how-to-use-basic-unix-commands-to-work-in-terminal](http://www.dummies.com/how-to/content/how-to-use-basic-unix-commands-to-work-in-terminal.html)
+
 ### How to edit code on your computer and then put your local code to PI
 - Suppose that you would like to put the code in your Desktop, open terminal. IF you have any isuess to get the code from Github, go through [how to add ssh key on your computer](https://help.github.com/articles/generating-ssh-keys/) then have a try again.
 ```
