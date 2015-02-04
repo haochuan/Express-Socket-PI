@@ -27,7 +27,7 @@ sudo npm install
 ```
 node server.js
 ```
-- Now open `10.0.1.13` in your favorite browser and to see if you can use the webpage to control the brightness of the lights.
+- Now open `10.0.1.13:8000` in your favorite browser and to see if you can use the webpage to control the brightness of the lights.
 
 - If you want to stop the server, press `ctrl + c`.
 
