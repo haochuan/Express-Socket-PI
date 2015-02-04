@@ -31,6 +31,8 @@ node server.js
 
 - If you want to stop the server, press `ctrl + c`.
 
+- If you want to log out from PI and go back to your computer, press `ctrl + d`.
+
 ### Some useful bash command:
 `ls `: list files and directories
 
