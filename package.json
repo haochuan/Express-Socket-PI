@@ -1,5 +1,5 @@
 {
-    "name": "Express Socket PI",
+    "name": "Express-Socket-PI",
     "version": "1.0.0",
     "description": "start template for using raspberry pi as a node server, which can let user use the webpage as a interface to communicate with server via socket.io.",
     "main": "server.js",
