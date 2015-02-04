@@ -10,7 +10,6 @@
 
 var express = require('express'),
     http = require('http'),
-    io = require('socket.io').listen(server),
     piblaster = require('pi-blaster.js');
 
 /*-----  End of Load node modules  ------*/
@@ -23,6 +22,8 @@ var app = express();
 
 // listen on port 8000
 var server = app.listen(8000);
+
+var io = require('socket.io').listen(server);
 
 // use ./public as static directory
 app.use(express.static(__dirname + '/public'));

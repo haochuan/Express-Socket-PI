@@ -1,5 +1,7 @@
 # Express Socket PI
 
+## Unplug-in the power of PI first when changing circuit!!!
+
 This is the start template for using raspberry pi as a node server, which can let user use the webpage as a interface to communicate with server via socket.io.
 
 ### How to run the sample server
@@ -16,7 +18,7 @@ cd ~/projects
 ```
 git clone git@github.com:haochuan/Express-Socket-PI.git
 ```
-- Now go to the directory of the start template, and install all node modules. The password for using sudo is as same as the login password from ssh.
+- Now go to the directory of the start template, and install all node modules which would take a long time. The password for using sudo is as same as the login password from ssh.
 ```
 cd Express-Socket-PI
 sudo npm install
@@ -26,6 +28,8 @@ sudo npm install
 node server.js
 ```
 - Now open `10.0.1.13` in your favorite browser and to see if you can use the webpage to control the brightness of the lights.
+
+- If you want to stop the server, press `ctrl + c`.
 
 ### How to edit code on your computer and then put your local code to PI
 - Suppose that you would like to put the code in your Desktop, open terminal. IF you have any isuess to get the code from Github, go through [how to add ssh key on your computer](https://help.github.com/articles/generating-ssh-keys/) then have a try again.
