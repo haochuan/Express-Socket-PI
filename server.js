@@ -32,9 +32,7 @@ var io = require('socket.io').listen(server);
 app.use(express.static(__dirname + '/public'));
 
 var button = new Gpio(17, 'in', 'both');
-button.watch(function(err, value) {
-    console.log(value);
-});
+
 
 /*-----  End of server setup  ------*/
 
@@ -59,8 +57,12 @@ button.watch(function(err, value) {
 *
 **/
 
-app.get('/', function(req, res){
+app.get('/led', function(req, res){
   res.sendfile(__dirname + '/index.html');
+});
+
+app.get('/flappy', function(req, res){
+  res.sendfile(__dirname + '/bird/index.html');
 });
 
 /*-----  End of Route   ------*/
@@ -92,6 +94,9 @@ app.get('/', function(req, res){
 *
 **/
 io.on('connection', function (socket) {
+  button.watch(function(err, value) {
+      socket.emit('jump', { is: true });
+  });
   socket.on('red', function (data) {
     piblaster.setPwm(22, Number(data.val) / 100);
   });

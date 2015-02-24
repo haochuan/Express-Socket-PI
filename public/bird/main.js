@@ -1,3 +1,6 @@
+var socket = io.connect();
+
+
 // width and height
 
 var width = window.innerWidth;
@@ -202,3 +205,4 @@ var main_state = {
 // Add and start the 'main' state to start the game
 game.state.add('main', main_state);  
 game.state.start('main'); 
+socket.on('jump', main_state.jump());
