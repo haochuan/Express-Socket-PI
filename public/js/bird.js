@@ -62,7 +62,7 @@ var main_state = {
     	// Pipe
     	this.pipes = game.add.group();
         this.pipes.enableBody = true;
-    	this.pipes.createMultiple(width / 20, 'pipe');
+    	this.pipes.createMultiple(500, 'pipe');
 		
         // scores
         this.pipeNumber = 0;
@@ -80,11 +80,14 @@ var main_state = {
     add_one_pipe: function(x, y) {
             var pipe = this.pipes.getFirstDead();
             // set new position for the pipe
+            if (pipe) {
             pipe.reset(x, y);
+            
             // add velocity to the pipe to move that to the left
             pipe.body.velocity.x = -(width / 2);
             // Kill teh pipe when it's no longer visible
             pipe.outOfBoundsKill = true;
+            } 
     },
 
     add_row_of_pipes: function() {  
@@ -101,9 +104,12 @@ var main_state = {
 
     //jump
     jump: function() {  
+
         // Add a vertical velocity to haochuan
-            if (this.haochuan.alive === false)  
-        return; 
+            if (this.haochuan.alive === false) {
+                return;
+            }
+
         this.haochuan.loadTexture('haochuan', 2);
         this.jump_sound.play();  
         this.haochuan.body.velocity.y = -400;
@@ -112,6 +118,7 @@ var main_state = {
     update: function() {
 		// Function called 60 times per second
         
+
         // jump animation
 
         if(!this.space_key.isDown) {
@@ -187,13 +194,9 @@ var main_state = {
         this.pipes.forEachAlive(function(p){ 
             p.body.velocity.x = 0;
         }, this);
-        this.label_text = this.game.add.text(width / 2 - 84, 80, "Press Space", { font: "30px Arial", fill: "#ffffff" }); 
-        this.label_text = this.game.add.text(width / 2 - 140, 120, "or Tap on the Screen", { font: "30px Arial", fill: "#ffffff" }); 
-        this.label_text = this.game.add.text(width / 2 - 60, 160, "to restart.", { font: "30px Arial", fill: "#ffffff" }); 
-        this.label_text = this.game.add.text(width / 2 - 150, 220, "Try on different device", { font: "30px Arial", fill: "#ffffff" }); 
-        this.label_text = this.game.add.text(width / 2 - 150, 260, "or resize your browser", { font: "30px Arial", fill: "#ffffff" }); 
-        this.label_text = this.game.add.text(width / 2 - 80, 300, "then refresh", { font: "30px Arial", fill: "#ffffff" }); 
-        this.label_text = this.game.add.text(width / 2 - 120, 340, "It will be different!", { font: "30px Arial", fill: "#ffffff" });
+        this.label_text = this.game.add.text(width / 2 - 90, 220, "Press button ", { font: "30px Arial", fill: "#ffffff" }); 
+        this.label_text = this.game.add.text(width / 2 - 150, 260, "or Tap on the screen", { font: "30px Arial", fill: "#ffffff" }); 
+        this.label_text = this.game.add.text(width / 2 - 80, 300, "to restart.", { font: "30px Arial", fill: "#ffffff" }); 
     },
     restart_game: function() {
         this.haochuan.win = false;
@@ -205,4 +208,10 @@ var main_state = {
 // Add and start the 'main' state to start the game
 game.state.add('main', main_state);  
 game.state.start('main'); 
-socket.on('jump', main_state.jump());
+socket.on('jump', function(data) {
+    if (!main_state.haochuan.alive) {
+        main_state.restart_game();
+    } else {
+        main_state.jump();
+    }
+});

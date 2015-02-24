@@ -31,7 +31,7 @@ var io = require('socket.io').listen(server);
 // use ./public as static directory
 app.use(express.static(__dirname + '/public'));
 
-var button = new Gpio(17, 'in', 'both');
+var button = new Gpio(24, 'in', 'both');
 
 
 /*-----  End of server setup  ------*/
@@ -95,7 +95,11 @@ app.get('/flappy', function(req, res){
 **/
 io.on('connection', function (socket) {
   button.watch(function(err, value) {
-      socket.emit('jump', { is: true });
+      if (value === 0) {
+          console.log('jump');
+        socket.emit('jump', { is: value });
+      }
+        
   });
   socket.on('red', function (data) {
     piblaster.setPwm(22, Number(data.val) / 100);
