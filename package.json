@@ -1,16 +1,17 @@
 {
-    "name": "Express-Socket-PI",
-    "version": "1.0.0",
-    "description": "start template for using raspberry pi as a node server, which can let user use the webpage as a interface to communicate with server via socket.io.",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Haochuan Liu <haochuan.liu@gmail.com>",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.11.1",
-        "pi-blaster.js": "0.0.2",
-        "socket.io": "^1.3.2"
-    }
+  "name": "Express-Socket-PI",
+  "version": "1.0.0",
+  "description": "start template for using raspberry pi as a node server, which can let user use the webpage as a interface to communicate with server via socket.io.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haochuan Liu <haochuan.liu@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.11.1",
+    "onoff": "^1.0.2",
+    "pi-blaster.js": "0.0.2",
+    "socket.io": "^1.3.2"
+  }
 }

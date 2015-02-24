@@ -10,7 +10,8 @@
 
 var express = require('express'),
     http = require('http'),
-    piblaster = require('pi-blaster.js');
+    piblaster = require('pi-blaster.js'),
+    Gpio = require('onoff').Gpio;
 
 /*-----  End of Load node modules  ------*/
 
@@ -27,6 +28,11 @@ var io = require('socket.io').listen(server);
 
 // use ./public as static directory
 app.use(express.static(__dirname + '/public'));
+
+var button = new Gpio(17, 'in', 'both');
+button.watch(function(err, value) {
+    console.log(value);
+});
 
 /*-----  End of server setup  ------*/
 
@@ -83,7 +89,6 @@ app.get('/', function(req, res){
 * See README.md for more details about how to communicate between front end and back end
 *
 **/
-
 io.on('connection', function (socket) {
   socket.on('red', function (data) {
     piblaster.setPwm(22, Number(data.val) / 100);
