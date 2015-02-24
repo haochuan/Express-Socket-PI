@@ -58,11 +58,11 @@ var button = new Gpio(17, 'in', 'both');
 **/
 
 app.get('/led', function(req, res){
-  res.sendfile(__dirname + '/index.html');
+  res.sendfile(__dirname + '/led.html');
 });
 
 app.get('/flappy', function(req, res){
-  res.sendfile(__dirname + '/bird/index.html');
+  res.sendfile(__dirname + '/bird.html');
 });
 
 /*-----  End of Route   ------*/
