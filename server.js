@@ -22,7 +22,9 @@ var express = require('express'),
 var app = express();
 
 // listen on port 8000
-var server = app.listen(8000);
+var server = app.listen(8000, function() {
+    console.log('App is listen to: 8000');
+});
 
 var io = require('socket.io').listen(server);
 
