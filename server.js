@@ -10,8 +10,11 @@
 
 var express = require('express'),
     http = require('http'),
-    piblaster = require('pi-blaster.js'),
-    Gpio = require('onoff').Gpio;
+    exec = require('child_process').exec,
+    bodyParser = require('body-parser'),
+    piblaster = require('pi-blaster.js');
+    
+var Gpio = require('onoff').Gpio;
 
 /*-----  End of Load node modules  ------*/
 
@@ -30,6 +33,8 @@ var io = require('socket.io').listen(server);
 
 // use ./public as static directory
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 var button = new Gpio(24, 'in', 'both');
 
@@ -63,6 +68,14 @@ app.get('/led', function(req, res){
 
 app.get('/flappy', function(req, res){
   res.sendfile(__dirname + '/public/bird.html');
+});
+app.get('/say', function(req, res){
+  res.sendfile(__dirname + '/public/say.html');
+});
+app.post('/say', function(req, res) {
+  console.log(req.body.text);
+  exec('say ' + req.body.text);
+  res.redirect('/say');
 });
 
 /*-----  End of Route   ------*/
