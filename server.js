@@ -74,7 +74,7 @@ app.get('/say', function(req, res){
 });
 app.post('/say', function(req, res) {
   console.log(req.body.text);
-  exec('say ' + req.body.text);
+  exec('say ' + '"' + req.body.text + '"');
   res.redirect('/say');
 });
 
