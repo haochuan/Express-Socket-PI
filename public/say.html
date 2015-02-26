@@ -38,7 +38,15 @@
     
 
     
-    <script></script>
+    <script>
+        $(document).ready(function() {
+            $("input[type=text]").keydown(function(e){
+                if (e == 13) {
+                    $(this).closest("form").submit();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
