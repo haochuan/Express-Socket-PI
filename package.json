@@ -13,6 +13,7 @@
     "express": "^4.11.1",
     "onoff": "^1.0.2",
     "pi-blaster.js": "0.0.2",
+    "raspicam": "^0.2.13",
     "socket.io": "^1.3.2"
   }
 }
