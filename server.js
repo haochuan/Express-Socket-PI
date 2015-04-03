@@ -16,6 +16,8 @@ var express = require('express'),
     
 var Gpio = require('onoff').Gpio;
 
+var RaspiCam = require("../lib/raspicam");
+
 /*-----  End of Load node modules  ------*/
 
 /*====================================
@@ -71,6 +73,29 @@ app.get('/flappy', function(req, res){
 });
 app.get('/say', function(req, res){
   res.sendfile(__dirname + '/public/say.html');
+});
+app.get('/video', function(req, res) {
+    var camera = new RaspiCam({
+      mode: "video",
+      output: "./video/video.h264",
+      framerate: 15,
+      timeout: 5000 // take a 5 second video
+    });
+
+    camera.on("started", function( err, timestamp ){
+      console.log("video started at " + timestamp );
+    });
+
+    camera.on("read", function( err, timestamp, filename ){
+      console.log("video captured with filename: " + filename + " at " + timestamp );
+    });
+
+    camera.on("exit", function( timestamp ){
+      console.log("video child process has exited at " + timestamp );
+      res.end();
+    });
+
+    camera.start();
 });
 app.post('/say', function(req, res) {
   console.log(req.body.text);
