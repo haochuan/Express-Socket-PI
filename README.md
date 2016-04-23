@@ -1,6 +1,6 @@
 # Express Socket PI
 
-## Unplug-in the power of PI first when changing circuit!!!
+#### Unplug-in the power of PI first when changing circuit!!!
 
 This is the start template for using raspberry pi as a node server, which can let user use the webpage as a interface to communicate with server via socket.io.
 
